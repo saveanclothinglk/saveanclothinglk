@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAVEAN | WEAR BETTER. LIVE BETTER.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loader" class="loader-container">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <div class="announcement-bar">
+        <p>FREE SHIPPING ON ORDERS OVER $75 | USE CODE: <span class="highlight">SAVEAN20</span> FOR 20% OFF</p>
+    </div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <div class="logo">
+                <a href="#home" class="route-link">SAVEAN</a>
+            </div>
+
+            <nav class="nav-links" id="nav-links">
+                <div class="mobile-menu-header">
+                    <span class="mobile-logo">SAVEAN</span>
+                    <i class="fas fa-times" id="close-menu-btn"></i>
+                </div>
+                <a href="#home" class="nav-item route-link active">Home</a>
+                <a href="#shop" class="nav-item route-link">Shop</a>
+                <a href="#categories" class="nav-item route-link">Categories</a>
+                <a href="#about" class="nav-item route-link">About Us</a>
+                <a href="#contact" class="nav-item route-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search trends...">
+                    <i class="fas fa-search" id="search-btn"></i>
+                    <div id="live-search-results" class="live-search-results"></div>
+                </div>
+                <i class="fas fa-moon" id="theme-toggle" title="Toggle Theme"></i>
+                <a href="#profile" class="route-link" title="Account"><i class="fas fa-user"></i></a>
+                <a href="#wishlist" class="route-link position-relative" title="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="wishlist-count">0</span>
+                </a>
+                <a href="#cart" class="route-link position-relative" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="view-home" class="page-view active">
+            <div class="hero-slider">
+                <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80')">
+                    <div class="slide-content">
+                        <h2>WEAR BETTER. LIVE BETTER.</h2>
+                        <p>Discover the New Premium Essentials Collection</p>
+                        <a href="#shop" class="btn btn-primary route-link">SHOP NEW ARRIVALS</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-bar container">
+                <div class="feature-item"><i class="fas fa-truck"></i> <span>Free Express Delivery</span></div>
+                <div class="feature-item"><i class="fas fa-undo"></i> <span>30-Day Easy Returns</span></div>
+                <div class="feature-item"><i class="fas fa-lock"></i> <span>100% Secure Checkout</span></div>
+            </div>
+
+            <section class="container section">
+                <h3 class="section-title">TRENDING CATEGORIES</h3>
+                <div class="category-banner-grid">
+                    <div class="cat-card direct-category" data-cat="Hoodies" style="background-image: url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80')">
+                        <div class="cat-overlay"><span>HOODIES</span></div>
+                    </div>
+                    <div class="cat-card direct-category" data-cat="T-shirts" style="background-image: url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80')">
+                        <div class="cat-overlay"><span>T-SHIRTS</span></div>
+                    </div>
+                    <div class="cat-card direct-category" data-cat="Caps" style="background-image: url('https://images.unsplash.com/photo-1534215754734-18e55d13ce35?auto=format&fit=crop&w=600&q=80')">
+                        <div class="cat-overlay"><span>ACCESSORIES</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container section">
+                <h3 class="section-title">NEW ARRIVALS</h3>
+                <div class="product-grid" id="home-new-arrivals"></div>
+            </section>
+
+            <section class="container section bg-light-section">
+                <h3 class="section-title">BEST SELLERS</h3>
+                <div class="product-grid" id="home-best-sellers"></div>
+            </section>
+        </section>
+
+        <section id="view-shop" class="page-view container section">
+            <h2 class="page-title">SHOP ALL PRODUCTS</h2>
+            <div class="shop-layout">
+                <aside class="shop-sidebar">
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <ul class="filter-list" id="filter-category">
+                            <li class="active" data-value="all">All Categories</li>
+                            <li data-value="T-shirts">T-Shirts</li>
+                            <li data-value="Hoodies">Hoodies</li>
+                            <li data-value="Jerseys">Jerseys</li>
+                            <li data-value="Shorts">Shorts</li>
+                            <li data-value="Caps">Caps</li>
+                            <li data-value="Accessories">Accessories</li>
+                        </ul>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <ul class="filter-list" id="filter-price">
+                            <li class="active" data-value="all">All Prices</li>
+                            <li data-value="0-25">Under $25</li>
+                            <li data-value="25-50">$25 - $50</li>
+                            <li data-value="50-100">$50 - $100</li>
+                        </ul>
+                    </div>
+                </aside>
+                
+                <div class="shop-content">
+                    <div class="shop-controls">
+                        <p id="product-count-meta">Showing all items</p>
+                        <select id="sort-selector" class="sort-select">
+                            <option value="default">Default Sorting</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+                    <div class="product-grid" id="shop-products-grid"></div>
+                    <div class="pagination" id="shop-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-product-details" class="page-view container section">
+            <div id="product-details-container"></div>
+            <div class="related-products-section mt-5">
+                <h3 class="section-title">YOU MAY ALSO LIKE</h3>
+                <div class="product-grid" id="related-products-grid"></div>
+            </div>
+        </section>
+
+        <section id="view-categories" class="page-view container section">
+            <h2 class="page-title">EXPLORE COLLECTIONS</h2>
+            <div class="categories-showcase" id="categories-showcase-grid"></div>
+        </section>
+
+        <section id="view-cart" class="page-view container section">
+            <h2 class="page-title">YOUR SHOPPING BAG</h2>
+            <div class="cart-layout" id="cart-layout-container"></div>
+        </section>
+
+        <section id="view-wishlist" class="page-view container section">
+            <h2 class="page-title">YOUR WISHLIST</h2>
+            <div class="product-grid" id="wishlist-grid"></div>
+        </section>
+
+        <section id="view-login" class="page-view container section format-form-view">
+            <div class="auth-card">
+                <h3>Welcome Back</h3>
+                <p>Sign in to your SAVEAN account</p>
+                <form id="login-form" class="auth-form">
+                    <div class="form-control">
+                        <label>Email Address *</label>
+                        <input type="email" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-control">
+                        <label>Password *</label>
+                        <input type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">SIGN IN</button>
+                </form>
+                <p class="auth-footer-text">Don't have an account? <a href="#register">Register here</a></p>
+            </div>
+        </section>
+
+        <section id="view-register" class="page-view container section format-form-view">
+            <div class="auth-card">
+                <h3>Create Account</h3>
+                <p>Join SAVEAN today for premium access</p>
+                <form id="register-form" class="auth-form">
+                    <div class="form-control">
+                        <label>Full Name *</label>
+                        <input type="text" required placeholder="John Doe">
+                    </div>
+                    <div class="form-control">
+                        <label>Email Address *</label>
+                        <input type="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-control">
+                        <label>Password *</label>
+                        <input type="password" required placeholder="Minimum 8 characters">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">CREATE ACCOUNT</button>
+                </form>
+                <p class="auth-footer-text">Already have an account? <a href="#login">Login here</a></p>
+            </div>
+        </section>
+
+        <section id="view-profile" class="page-view container section">
+            <h2 class="page-title">MY ACCOUNT</h2>
+            <div class="account-layout">
+                <aside class="account-sidebar">
+                    <a href="#profile" class="account-sidebar-link active">Profile Info</a>
+                    <a href="#order-history" class="account-sidebar-link">Order History</a>
+                </aside>
+                <div class="account-content-box">
+                    <h3>Account Details</h3>
+                    <hr>
+                    <p><strong>Name:</strong> Demo User</p>
+                    <p><strong>Email:</strong> demo.user@savean.com</p>
+                    <p><strong>Default Shipping Address:</strong> 123 Fashion Blvd, New York, NY 10001</p>
+                    <button class="btn btn-outline red-btn mt-3" id="logout-mock-btn">Sign Out</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-order-history" class="page-view container section">
+            <h2 class="page-title">MY ORDERS</h2>
+            <div class="account-layout">
+                <aside class="account-sidebar">
+                    <a href="#profile" class="account-sidebar-link">Profile Info</a>
+                    <a href="#order-history" class="account-sidebar-link active">Order History</a>
+                </aside>
+                <div class="account-content-box">
+                    <h3>Your Orders</h3>
+                    <hr>
+                    <div class="order-card-item">
+                        <div class="order-header-meta">
+                            <span><strong>Order ID:</strong> #SV-98431</span>
+                            <span><strong>Status:</strong> <span class="badge-status success">Delivered</span></span>
+                        </div>
+                        <p class="small text-muted">Placed on: June 10, 2026</p>
+                        <p>Items: 1x Premium Hooded Sweatshirt</p>
+                        <p><strong>Total:</strong> $55.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-contact" class="page-view container section">
+            <h2 class="page-title">CONTACT US</h2>
+            <div class="contact-grid">
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p class="mb-4">Have questions about your order or our collections? Drop us a line.</p>
+                    <p><i class="fas fa-envelope"></i> support@savean.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (800) 555-SAVE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Fashion District, New York, NY</p>
+                </div>
+                <form id="contact-form" class="auth-form">
+                    <div class="form-control">
+                        <label>Your Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-control">
+                        <label>Your Email</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-control">
+                        <label>Message</label>
+                        <textarea rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="view-about" class="page-view container section text-center max-width-reading">
+            <h2 class="page-title">OUR STORY</h2>
+            <p class="lead-text">At <strong>SAVEAN</strong>, our ethos is built directly into our statement name: <strong>WEAR BETTER. LIVE BETTER.</strong></p>
+            <p>Founded in 2026, we engineer minimalist, sustainable, and high-quality contemporary street apparel. We reject fast-fashion throwaway culture to center design focus on clean lines, exquisite silhouettes, and durable premium textiles designed to elevate daily lifestyles.</p>
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80" alt="About Savean" class="img-fluid rounded mt-4">
+        </section>
+
+        <section id="view-faq" class="page-view container section max-width-reading">
+            <h2 class="page-title">FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="faq-item">
+                <h4>How long does shipping take?</h4>
+                <p>Standard delivery takes 3-5 business days. Express overnight shipping options are available at checkout.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is your return policy?</h4>
+                <p>We accept returns of unworn items with tags attached within 30 days of standard delivery.</p>
+            </div>
+        </section>
+
+        <section id="view-privacy" class="page-view container section max-width-reading">
+            <h2 class="page-title">PRIVACY POLICY</h2>
+            <p>Your privacy is vital to us. SAVEAN securely encrypts and protects customer records, transaction data, and account details. We never sell profile metadata to external advertising brokers.</p>
+        </section>
+
+        <section id="view-terms" class="page-view container section max-width-reading">
+            <h2 class="page-title">TERMS & CONDITIONS</h2>
+            <p>By engaging with and purchasing products from SAVEAN, you enter structural compliance with our operational terms, checkout systems, order management rules, and liability frameworks.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand-column">
+                <h3>SAVEAN</h3>
+                <p class="tagline">WEAR BETTER. LIVE BETTER.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>SHOP</h4>
+                <ul>
+                    <li><a href="#shop" class="route-link">New Arrivals</a></li>
+                    <li><a href="#shop" class="route-link">Best Sellers</a></li>
+                    <li><a href="#categories" class="route-link">All Collections</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>ASSISTANCE</h4>
+                <ul>
+                    <li><a href="#contact" class="route-link">Contact Support</a></li>
+                    <li><a href="#faq" class="route-link">FAQs</a></li>
+                    <li><a href="#order-history" class="route-link">Track Order</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>JOIN THE CLUB</h4>
+                <p class="small text-muted mb-2">Subscribe to receive 15% off your first checkout.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 SAVEAN Apparel Inc. All Rights Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#privacy" class="route-link">Privacy Policy</a>
+                <a href="#terms" class="route-link">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="quickview-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-quickview">&times;</span>
+            <div id="quickview-modal-body"></div>
+        </div>
+    </div>
+
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
